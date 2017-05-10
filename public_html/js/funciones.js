@@ -82,15 +82,21 @@ function borrar() {
 }
 ;
 
+function keydownFunction() {
+    document.getElementById("demo").style.backgroundColor = "red";
+}
+;
 
+function keyupFunction() {
+    document.getElementById("demo").style.backgroundColor = "green";
+}
+;
 window.onload = function () {
 
 
 
-    //document.getElementById("btn1").onclick = capturaEvento;
-    
-    document.getElementById("demo").onkeydown=keydownFunction;
-    document.getElementById("demo").onkeyup=keyupFunction;
+    // document.getElementById("btn1").onclick = capturaEvento;
+
 
     /*var x = document.getElementById("demo");
      var y = document.getElementById("otro");
@@ -106,15 +112,43 @@ window.onload = function () {
      }*/
 
 };
+function codigoNavegador() {
+    
+    var x = "Browser CodeName: " + navigator.appCodeName;
+    var y = "Browser Name: " + navigator.appName;
+    var z = "Browser Version " + navigator.appVersion;
+    var n = "Browser Version " + navigator.product;
+    document.getElementById("codigoNavegador").innerHTML = x;
+    document.getElementById("nombreNavegador").innerHTML = y;
+     document.getElementById("versionNavegador").innerHTML = z;
+     document.getElementById("productoNavegador").innerHTML = n;
+}
+window.onload = function () {
+
+    document.getElementById("demo").onkeydown = keydownFunction;
+    document.getElementById("demo").onkeyup = keyupFunction;
+};
+
+window.onload = function () {
+
+    document.getElementById("infoBoton").onclick = codigoNavegador;
+
+};
+
+
+window.onbeforeunload = function (event) {
+
+    event.returnValue = "Te vas o te quedas?";
+};
 
 function capturaEvento(evento) {
 
     alert("El evento es--" + evento.type);
-    alert("El elemento disparador es...:" +evento.target);
-    alert("Coordenas Ventana del Navegador...:"+evento.clientX+"..."+evento.clientY);
-    alert("codenadas de la pantalla.....:"+evento.screenX+"..."+evento.screenY);
-    alert("codenadas de la pagina.....:"+evento.pageX+"..."+evento.pageY);
-    
+    alert("El elemento disparador es...:" + evento.target);
+    alert("Coordenas Ventana del Navegador...:" + evento.clientX + "..." + evento.clientY);
+    alert("Coordenadas de la pantalla_____:" + evento.screenX + "..." + evento.screenY);
+    alert("Coordenas pagina_____:" + evento.pageX + "..." + evento.pageY);
+
     x = document.getElementById("dispara");
     if (x.style.visibility === "hidden") {
         x.style.visibility = "visible";
@@ -148,13 +182,6 @@ function blue2(x) {
     x.style.visibility = "hidden";
 }
 ;
-function keydownFunction() {
-    document.getElementById("demo").style.backgroundColor = "red";
-}
-
-function keyupFunction() {
-    document.getElementById("demo").style.backgroundColor = "green";
-}
 
 
 

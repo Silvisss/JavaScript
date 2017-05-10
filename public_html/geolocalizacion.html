@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <p>Haga clic en el botón para obtener sus coordenadas</p>
+
+        <button onclick="getLocation()">Try It</button>
+
+        <p><strong>Note:</strong> La propiedad de geolocalizacion no se admite en IE8 y versiones anteriores.</p>
+
+        <p id="demo"></p>
+
+        <script>
+            var x = document.getElementById("demo");
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    //el metodo getCurrent necesita una funcion con un objeto position
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "La geolocalización no es compatible con este navegador.";
+                }
+            }
+//objeto de tipo  Position
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                        "<br>Longitude: " + position.coords.longitude;
+                "<br>Precision " + position.coords.accuracy;
+            }
+        </script>
+
+    </body>
+</html>
