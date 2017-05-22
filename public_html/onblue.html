@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Este ejemplo utiliza el DOM HTML para asignar un evento "onblur" a un elemento de entrada.</p>
+
+<p>Write something in the input field, and then click outside the field to lose focus (blur).</p>
+
+<input type="text" id="fname">
+
+<script>
+document.getElementById("fname").onblur = function() {myFunction()};
+
+function myFunction() {
+    alert("Input field lost focus.");
+}
+</script>
+
+</body>
+</html>
